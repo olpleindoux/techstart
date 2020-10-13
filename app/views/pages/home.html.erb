@@ -1,0 +1,12 @@
+<div class="title">
+  <h1>Un site 100% dédié au lancement des meilleurs sorties Tech du moment</h1>
+</div>
+
+
+<div>
+  <% @products.each do |p| %>
+    <%= link_to product_path(product) do %>
+    <h3><%= p.title %> </h3>
+    <% end %>
+  <% end %>
+</div>
