@@ -1,11 +1,12 @@
 class PagesController < ApplicationController
-  def home
-  end
+  # def top_product
+  #   @product = Product.last
+  #   # if @product > 1
+  #   #   @product = Product.last
+  #   # end
+  # end
 
-  def top_product
+  def home
     @products = Product.all
-    if @product > 1
-      @product = Product.last
-    end
   end
 end
