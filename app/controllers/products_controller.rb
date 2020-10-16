@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy]
+  before_action :format_date, only: [:index, :show, :destroy]
+
   def index
     @products = Product.all
   end
@@ -10,11 +12,16 @@ class ProductsController < ApplicationController
     @product = Product.new # needed to instantiate the form_for
   end
 
- private
+  private
 
   def set_product
     @product = Product.find(params[:id])
     # authorize @product
+  end
+
+  def format_date
+    @product = Product.find(params[:id])
+    @product.release_date = DateTime.parse(@product.release_date).strftime("%d/%m/%Y")
   end
 
   def product_params
