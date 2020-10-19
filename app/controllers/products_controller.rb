@@ -6,7 +6,9 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show; end
+  def show
+    @review = Review.new
+  end
 
   def new
     @product = Product.new # needed to instantiate the form_for

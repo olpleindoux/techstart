@@ -3,7 +3,11 @@
   <h3><%= @product.url %></h3>
   <h5><%= @product.category.label %></h5>
   <p><%= @product.description %></p>
-  <p>Release date: <%= @product.release_date %>
-  </p>
-
+  <p>Release date: <%= @product.release_date %></p>
+</div>
+<div>
+  <% @product.reviews.each do |review| %>
+    <%= review.content %>
+    <%= review.vote %>
+  <% end %>
 </div>
