@@ -6,8 +6,12 @@
   <p>Release date: <%= @product.release_date %></p>
 </div>
 <div>
-  <% @product.reviews.each do |review| %>
-    <%= review.content %>
-    <%= review.vote %>
+  <% if @product.reviews.count > 0 %>
+    <% @product.reviews.each do |review| %>
+      <%= review.content %>
+      <%= review.vote %>
+    <% end %>
+  <% else %>
+    <p class="comment">Aucun commentaire. Soyez le premier à donner votre avis</p>
   <% end %>
 </div>
