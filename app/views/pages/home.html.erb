@@ -1,12 +1,7 @@
-<div class="title">
-  <h1>Un site 100% dédié au lancement des meilleurs sorties Tech du moment</h1>
-</div>
-
-
-<div>
-  <% @products.each do |p| %>
-    <%= link_to product_path(p) do %>
-    <h3><%= p.title %> </h3>
-    <% end %>
-  <% end %>
+<div class="main-section">
+  <h1 class="principal-title">Un site 100% dédié au lancement des meilleurs sorties Tech du moment</h1>
+  <div class="button-section">
+    <a href="#" class="button">Dernières sorties</a>
+    <a href="/products" class="button">Voir tous les produits</a>
+  </div>
 </div>

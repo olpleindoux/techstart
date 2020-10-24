@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :destroy]
-  before_action :format_date, only: [:index, :show, :destroy]
+  before_action :format_date, only: [:show, :destroy]
+  before_action :format_all_date, only: [:index]
 
   def index
     @products = Product.all
@@ -24,6 +25,13 @@ class ProductsController < ApplicationController
   def format_date
     @product = Product.find(params[:id])
     @product.release_date = DateTime.parse(@product.release_date).strftime("%d/%m/%Y")
+  end
+
+  def format_all_date
+    @products = Product.all
+    @products.each do |product|
+      product.release_date = DateTime.parse(product.release_date).strftime("%d/%m/%Y")
+    end
   end
 
   def product_params

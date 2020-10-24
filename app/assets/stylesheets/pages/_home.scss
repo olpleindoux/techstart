@@ -1,1 +1,26 @@
 // Specific CSS for your home-page
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 450px;
+}
+
+.principal-title {
+  font-weight: bold;
+  font-size: 48px;
+  width: 40%;
+  text-align: center;
+}
+
+
+.button {
+  border: 1px solid #C4C4C4;
+  border-radius: 50px;
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+
+}
