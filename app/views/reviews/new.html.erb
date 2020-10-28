@@ -1,0 +1,8 @@
+<div class="new-review">
+  <%= simple_form_for [@product, @review] do |f| -%>
+    <%= f.error_notification %>
+    <%= f.input :content, placeholder: 'Saisir votre commentaire', label: "" %>
+    <%= f.input :vote, collection: (1..5).to_a, label: 'Votre note' %>
+    <%= f.button :submit, 'Publier', class: 'button' %>
+  <% end -%>
+</div>

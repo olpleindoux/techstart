@@ -7,11 +7,17 @@
 </div>
 <div>
   <% if @product.reviews.count > 0 %>
+    <%= link_to "Donner mon avis", new_product_review_path(@product), class: "button" %>
+    <p>Moyenne des avis : <%= @moyenne %></p>
     <% @product.reviews.each do |review| %>
-      <%= review.content %>
-      <%= review.vote %>
+      <div class="review">
+        <%= review.content %>
+        <%= review.vote %>
+      </div>
     <% end %>
   <% else %>
     <p class="comment">Aucun commentaire. Soyez le premier à donner votre avis</p>
+    <%= link_to "Donner mon avis", new_product_review_path(@product), class: "button" %>
   <% end %>
 </div>
+

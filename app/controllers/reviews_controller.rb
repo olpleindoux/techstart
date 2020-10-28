@@ -1,13 +1,18 @@
 class ReviewsController < ApplicationController
+  def new
+    @review = Review.new
+    @product = Product.find(params[:product_id])
+  end
+
   def create
     @review = Review.new(review_params)
     @product = Product.find(params[:product_id])
     @review.product = @product
 
     if @review.save
-      redirect_to product_path(@product)
+      redirect_to @product
     else
-      render 'products/show'
+      render 'new'
     end
   end
 
