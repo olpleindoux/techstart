@@ -7,9 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-puts "Cleaning database..."
+puts 'Cleaning database...'
 Category.destroy_all
 Product.destroy_all
+User.destroy_all
+Review.destroy_all
+
+puts 'Create User'
+
+def save_user(user)
+  if user.save
+    puts "user #{user.full_name} created"
+  else
+    puts "user #{user.full_name} has encountered a problem"
+  end
+end
+
+user = User.new(full_name: 'Olivier', email: 'mail@mail.fr', password: 'password')
+save_user(user)
 
 puts 'Create some catégories:'
 
@@ -42,7 +57,7 @@ save_category(cat6)
 cat7 = Category.new(label: 'Education')
 save_category(cat7)
 
-puts "Create some products"
+puts 'Create some products'
 
 def save_product(product)
   if product.save
@@ -56,28 +71,32 @@ product1 = Product.new(title: 'product one',
                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ",
                        url: "www.product-one.com",
                        release_date: DateTime.now + rand(1..150),
-                       category: cat1)
+                       category: cat1,
+                       user: user)
 save_product(product1)
 
 product2 = Product.new(title: 'product two',
                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ",
                        url: "www.product-two.com",
                        release_date: DateTime.now + rand(1..150),
-                       category: cat1)
+                       category: cat1,
+                       user: user)
 save_product(product2)
 
 product3 = Product.new(title: 'product three',
                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ",
                        url: "www.product-three.com",
                        release_date: DateTime.now + rand(1..150),
-                       category: cat3)
+                       category: cat3,
+                       user: user)
 save_product(product3)
 
 product4 = Product.new(title: 'product four',
                        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ",
                        url: "www.product-four.com",
                        release_date: DateTime.now + rand(1..150),
-                       category: cat5)
+                       category: cat5,
+                       user: user)
 save_product(product4)
 
 puts 'Finished!'
