@@ -23,7 +23,7 @@ def save_user(user)
   end
 end
 
-user = User.new(full_name: 'Olivier', email: 'mail@mail.fr', password: 'password')
+user = User.new(full_name: 'Olivier', email: 'user@mail.fr', password: 'password')
 save_user(user)
 
 puts 'Create some catégories:'
