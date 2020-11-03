@@ -35,7 +35,7 @@
                 <i class="far fa-comment-alt ico-navbar"></i> Mes commentaires
               </span>
             <% end %>
-            <%= link_to destroy_user_session_path do %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
               <span class="dropdown-item" id="last-item">
                 <i class="fas fa-power-off ico-navbar"></i> Déconnexion
               </span>
