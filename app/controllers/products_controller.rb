@@ -23,10 +23,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new # needed to instantiate the form_for
+    @category = Category.all
   end
 
   def create
     @product = Product.new(product_params)
+    @product.user = current_user
+    @product.category = Category.find(params[:product][:category])
 
     if @product.save
       redirect_to @product

@@ -1,0 +1,11 @@
+<div class="container post-product">
+  <%= simple_form_for [@product] do |f| -%>
+    <%= f.error_notification %>
+    <%= f.input :title, placeholder: 'Titre de votre produit', label: false %>
+    <%= f.select :category, Category.pluck(:label, :id) %>
+    <%= f.input :release_date, as: :date, html5:true, datetime_select: Time.now, label: 'Date de sortie' %>
+    <%= f.input :url, placeholder: 'site internet du produit', label: false %>
+    <%= f.input :description, as: :text, placeholder: 'Saisir une description', label: false %>
+    <%= f.button :submit, "Valider le produit", class:"submit-btn" %>
+  <% end -%>
+</div>
